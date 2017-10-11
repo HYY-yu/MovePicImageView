@@ -56,18 +56,21 @@ public class MovePicImageView extends ImageView {
         }
     }
 
-    public MovePicImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        setScaleType(ScaleType.MATRIX);
-    }
-
     public MovePicImageView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
     public MovePicImageView(Context context) {
         this(context, null);
+    }
 
+    public MovePicImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        setScaleType(ScaleType.MATRIX);
+
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.MovePicImageView);
+        bgId = array.getResourceId(R.styleable.MovePicImageView_move_pic_bg,0);
+        array.recycle();
     }
 
     @Override
